@@ -22,23 +22,39 @@ loggly_tag:    syslog
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+n/a
+
+
+Testing
+-------
+
+Assumes you have Ruby and Bundler already installed.
+
+
+```bash
+bundle install  # Only required once
+bundle exec kitchen test
+```
+
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - jmcvetta.loggly
+
 
 License
 -------
 
-BSD
+This is Free Software, released under the terms of the Apache v2 license.  
+
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[Jason McVetta](mailto:jason.mcvetta@gmail.com)
+
+Paid support and consulting services available from [Silicon
+Heavy](http://siliconheavy.com)
