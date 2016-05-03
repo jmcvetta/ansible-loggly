@@ -1,2 +1,4 @@
 ---
-# defaults file for jmcvetta.loggly
+
+loggly_token:  YOUR_TOKEN_GOES_HERE
+loggly_tag:    syslog

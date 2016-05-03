@@ -1,2 +1,6 @@
 ---
-# handlers file for jmcvetta.loggly
+
+- name: Restart rsyslog
+  service:
+    name: rsyslog
+    state: restarted
