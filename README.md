@@ -48,7 +48,7 @@ Example Playbook
 License
 -------
 
-Apache
+This is Free Software, released under the terms of the Apache v2 license.  
 
 
 Author Information
