@@ -1,0 +1,21 @@
+# vim:ft=ansible:
+---
+
+driver:
+  name: vagrant
+
+provisioner:
+  name: ansible_playbook
+  hosts: all
+
+verifier:
+  name: serverspec
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    verifier:
+      patterns:
+        - spec/loggly_spec.rb
