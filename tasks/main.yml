@@ -6,14 +6,27 @@
 # serfdom - the ownership of ideas is akin to slavery.
 ---
 
-- name: Ensure rsyslog is installed
+- name: Loggly | Ensure rsyslog is installed
   apt:
     name: rsyslog
     state: present
     update_cache: yes
 
-- name: Ensure loggly rsyslog config is present
+- name: Loggly | Ensure loggly rsyslog for tls config is present
+  import_tasks: tls.yml
+  when: loggly_tls | default('false') | bool
+
+- name: Loggly | Ensure loggly rsyslog config is present
   template:
     src: 22-loggly.conf.j2
     dest: /etc/rsyslog.d/22-loggly.conf
   notify: Restart rsyslog
+
+- name: Loggly | Check which init system is in place
+  shell: cat /proc/1/status | grep '[Nn]ame'|sed 's/[Nn]ame:\s*//'
+  register: init_system
+
+# Ref: https://www.loggly.com/docs/systemd-logs/
+- name: Loggly | Configure systemd to forward logs to rsyslog
+  import_tasks: journald.yml
+  when: init_system.stdout == "systemd"

@@ -1,4 +1,9 @@
 ---
 
-loggly_token:  YOUR_TOKEN_GOES_HERE
-loggly_tag:    syslog
+loggly_token:     YOUR_TOKEN_GOES_HERE
+loggly_tag:       syslog
+loggly_url:       logs-01.loggly.com
+loggly_cert:      logs-01.loggly.com_sha12.crt
+loggly_cert_path: /etc/rsyslog.d/keys/ca.d
+loggly_port:      514
+loggly_port_tls:  6514
